@@ -25,7 +25,7 @@ import (
 
 	. "github.com/Sabayon/pkgs-checker/pkg/gentoo"
 
-	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
 	version "github.com/hashicorp/go-version"

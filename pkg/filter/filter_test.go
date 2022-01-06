@@ -26,7 +26,7 @@ import (
 	gentoo "github.com/Sabayon/pkgs-checker/pkg/gentoo"
 	sark "github.com/Sabayon/pkgs-checker/pkg/sark"
 
-	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )
 
