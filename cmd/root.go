@@ -26,12 +26,12 @@ import (
 	"github.com/spf13/cobra"
 	settings "github.com/spf13/viper"
 
-	"github.com/Sabayon/pkgs-checker/cmd/entropy"
-	"github.com/Sabayon/pkgs-checker/cmd/pkg"
-	"github.com/Sabayon/pkgs-checker/cmd/pkglist"
-	"github.com/Sabayon/pkgs-checker/cmd/portage"
-	"github.com/Sabayon/pkgs-checker/cmd/sark"
-	"github.com/Sabayon/pkgs-checker/pkg/commons"
+	"github.com/geaaru/pkgs-checker/cmd/entropy"
+	"github.com/geaaru/pkgs-checker/cmd/pkg"
+	"github.com/geaaru/pkgs-checker/cmd/pkglist"
+	"github.com/geaaru/pkgs-checker/cmd/portage"
+	"github.com/geaaru/pkgs-checker/cmd/sark"
+	"github.com/geaaru/pkgs-checker/pkg/commons"
 )
 
 var (
@@ -44,7 +44,7 @@ var logFile *os.File
 
 // Program command declaration
 var rootCmd = &cobra.Command{
-	Short: "Sabayon packages checker",
+	Short: "Macaroni OS packages checker",
 	Version: fmt.Sprintf("%s-g%s %s", commons.PKGS_CHECKER_VERSION,
 		BuildCommit, BuildTime),
 	Args: cobra.OnlyValidArgs,

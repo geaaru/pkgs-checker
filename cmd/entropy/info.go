@@ -26,8 +26,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	e "github.com/Sabayon/pkgs-checker/pkg/entropy"
-	gentoo "github.com/Sabayon/pkgs-checker/pkg/gentoo"
+	e "github.com/geaaru/pkgs-checker/pkg/entropy"
+	gentoo "github.com/geaaru/pkgs-checker/pkg/gentoo"
 )
 
 func newEntropyInfoCommand() *cobra.Command {

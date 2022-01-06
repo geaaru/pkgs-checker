@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Sabayon/pkgs-checker/pkg/gentoo"
+	"github.com/geaaru/pkgs-checker/pkg/gentoo"
 
 	"github.com/spf13/cobra"
 )

@@ -19,8 +19,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 package entropy_test
 
 import (
-	. "github.com/Sabayon/pkgs-checker/pkg/entropy"
-	. "github.com/Sabayon/pkgs-checker/pkg/gentoo"
+	. "github.com/geaaru/pkgs-checker/pkg/entropy"
+	. "github.com/geaaru/pkgs-checker/pkg/gentoo"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

@@ -24,7 +24,7 @@ import (
 	"strconv"
 	"strings"
 
-	gentoo "github.com/Sabayon/pkgs-checker/pkg/gentoo"
+	gentoo "github.com/geaaru/pkgs-checker/pkg/gentoo"
 )
 
 type EntropyPackage struct {

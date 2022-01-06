@@ -30,7 +30,7 @@ import (
 
 	logger "github.com/sirupsen/logrus"
 
-	commons "github.com/Sabayon/pkgs-checker/pkg/commons"
+	commons "github.com/geaaru/pkgs-checker/pkg/commons"
 )
 
 const BYTE_BUFFER_LEN = 100

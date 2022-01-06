@@ -27,7 +27,7 @@ import (
 	v "github.com/spf13/viper"
 	yaml "gopkg.in/yaml.v2"
 
-	commons "github.com/Sabayon/pkgs-checker/pkg/commons"
+	commons "github.com/geaaru/pkgs-checker/pkg/commons"
 )
 
 func (s *SarkConfig) unmarshalAndVerify() error {

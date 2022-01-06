@@ -7,8 +7,8 @@ VERSION := $(shell echo $(VERSION) | sed -e 's/^v//g')
 BUILD_PLATFORMS ?= -osarch="linux/amd64" -osarch="linux/386" -osarch="linux/arm"
 
 # go tool nm ./luet | grep Commit
-override LDFLAGS += -X "github.com/Sabayon/pkgs-checker/cmd.BuildTime=$(shell date -u '+%Y-%m-%d %I:%M:%S %Z')"
-override LDFLAGS += -X "github.com/Sabayon/pkgs-checker/cmd.BuildCommit=$(shell git rev-parse HEAD)"
+override LDFLAGS += -X "github.com/geaaru/pkgs-checker/cmd.BuildTime=$(shell date -u '+%Y-%m-%d %I:%M:%S %Z')"
+override LDFLAGS += -X "github.com/geaaru/pkgs-checker/cmd.BuildCommit=$(shell git rev-parse HEAD)"
 
 
 .PHONY: all

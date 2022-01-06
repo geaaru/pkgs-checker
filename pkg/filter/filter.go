@@ -30,11 +30,11 @@ import (
 	logger "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 
-	binhostdir "github.com/Sabayon/pkgs-checker/pkg/binhostdir"
-	commons "github.com/Sabayon/pkgs-checker/pkg/commons"
-	gentoo "github.com/Sabayon/pkgs-checker/pkg/gentoo"
-	pkglist "github.com/Sabayon/pkgs-checker/pkg/pkglist"
-	sark "github.com/Sabayon/pkgs-checker/pkg/sark"
+	binhostdir "github.com/geaaru/pkgs-checker/pkg/binhostdir"
+	commons "github.com/geaaru/pkgs-checker/pkg/commons"
+	gentoo "github.com/geaaru/pkgs-checker/pkg/gentoo"
+	pkglist "github.com/geaaru/pkgs-checker/pkg/pkglist"
+	sark "github.com/geaaru/pkgs-checker/pkg/sark"
 )
 
 type Filter struct {

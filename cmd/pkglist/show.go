@@ -26,9 +26,9 @@ import (
 	"github.com/spf13/cobra"
 	settings "github.com/spf13/viper"
 
-	"github.com/Sabayon/pkgs-checker/pkg/commons"
-	entropy "github.com/Sabayon/pkgs-checker/pkg/entropy"
-	"github.com/Sabayon/pkgs-checker/pkg/pkglist"
+	"github.com/geaaru/pkgs-checker/pkg/commons"
+	entropy "github.com/geaaru/pkgs-checker/pkg/entropy"
+	"github.com/geaaru/pkgs-checker/pkg/pkglist"
 )
 
 func newPkglistShowCommand() *cobra.Command {

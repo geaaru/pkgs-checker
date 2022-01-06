@@ -21,7 +21,7 @@ package binhostdir_test
 import (
 	"regexp"
 
-	. "github.com/Sabayon/pkgs-checker/pkg/binhostdir"
+	. "github.com/geaaru/pkgs-checker/pkg/binhostdir"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

@@ -21,7 +21,7 @@ package luet
 import (
 	"strings"
 
-	"github.com/Sabayon/pkgs-checker/pkg/gentoo"
+	"github.com/geaaru/pkgs-checker/pkg/gentoo"
 )
 
 type PortageConverterUseFlags struct {

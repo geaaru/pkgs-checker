@@ -25,8 +25,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/Sabayon/pkgs-checker/pkg/gentoo"
-	"github.com/Sabayon/pkgs-checker/pkg/luet"
+	"github.com/geaaru/pkgs-checker/pkg/gentoo"
+	"github.com/geaaru/pkgs-checker/pkg/luet"
 
 	"github.com/spf13/cobra"
 	"gopkg.in/yaml.v2"

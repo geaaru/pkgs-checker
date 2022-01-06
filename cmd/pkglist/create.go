@@ -26,8 +26,8 @@ import (
 	"github.com/spf13/cobra"
 	settings "github.com/spf13/viper"
 
-	"github.com/Sabayon/pkgs-checker/pkg/commons"
-	"github.com/Sabayon/pkgs-checker/pkg/pkglist"
+	"github.com/geaaru/pkgs-checker/pkg/commons"
+	"github.com/geaaru/pkgs-checker/pkg/pkglist"
 )
 
 func newPkglistCreateCommand() *cobra.Command {

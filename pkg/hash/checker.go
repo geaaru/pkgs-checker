@@ -38,7 +38,7 @@ import (
 	logger "github.com/sirupsen/logrus"
 	viper "github.com/spf13/viper"
 
-	commons "github.com/Sabayon/pkgs-checker/pkg/commons"
+	commons "github.com/geaaru/pkgs-checker/pkg/commons"
 )
 
 type CheckerExecutor interface {

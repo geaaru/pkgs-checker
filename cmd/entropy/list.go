@@ -27,7 +27,7 @@ import (
 	"github.com/spf13/cobra"
 	settings "github.com/spf13/viper"
 
-	e "github.com/Sabayon/pkgs-checker/pkg/entropy"
+	e "github.com/geaaru/pkgs-checker/pkg/entropy"
 )
 
 func newEntropyListCommand() *cobra.Command {

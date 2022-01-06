@@ -1,4 +1,4 @@
-module github.com/Sabayon/pkgs-checker
+module github.com/geaaru/pkgs-checker
 
 go 1.16
 

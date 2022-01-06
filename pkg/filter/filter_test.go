@@ -22,9 +22,9 @@ package filter_test
 import (
 	"fmt"
 
-	. "github.com/Sabayon/pkgs-checker/pkg/filter"
-	gentoo "github.com/Sabayon/pkgs-checker/pkg/gentoo"
-	sark "github.com/Sabayon/pkgs-checker/pkg/sark"
+	. "github.com/geaaru/pkgs-checker/pkg/filter"
+	gentoo "github.com/geaaru/pkgs-checker/pkg/gentoo"
+	sark "github.com/geaaru/pkgs-checker/pkg/sark"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

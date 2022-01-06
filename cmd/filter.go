@@ -23,9 +23,9 @@ import (
 	"github.com/spf13/cobra"
 	settings "github.com/spf13/viper"
 
-	"github.com/Sabayon/pkgs-checker/pkg/commons"
-	f "github.com/Sabayon/pkgs-checker/pkg/filter"
-	"github.com/Sabayon/pkgs-checker/pkg/sark"
+	"github.com/geaaru/pkgs-checker/pkg/commons"
+	f "github.com/geaaru/pkgs-checker/pkg/filter"
+	"github.com/geaaru/pkgs-checker/pkg/sark"
 )
 
 func newFilterCommand() *cobra.Command {

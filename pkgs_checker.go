@@ -1,6 +1,6 @@
 /*
 
-Copyright (C) 2017-2018  Daniele Rondina <geaaru@sabayonlinux.org>
+Copyright (C) 2017-2021  Daniele Rondina <geaaru@sabayonlinux.org>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 package main
 
 import (
-	checker "github.com/Sabayon/pkgs-checker/cmd"
+	checker "github.com/geaaru/pkgs-checker/cmd"
 	settings "github.com/spf13/viper"
 )
 

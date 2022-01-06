@@ -33,9 +33,9 @@ import (
 
 	logger "github.com/sirupsen/logrus"
 
-	"github.com/Sabayon/pkgs-checker/pkg/binhostdir"
-	commons "github.com/Sabayon/pkgs-checker/pkg/commons"
-	entropy "github.com/Sabayon/pkgs-checker/pkg/entropy"
+	"github.com/geaaru/pkgs-checker/pkg/binhostdir"
+	commons "github.com/geaaru/pkgs-checker/pkg/commons"
+	entropy "github.com/geaaru/pkgs-checker/pkg/entropy"
 )
 
 type PkgListReport struct {

@@ -1,12 +1,12 @@
-# Sabayon Packages Checker
+# Macaroni OS Packages Checker
 
-[![Coverage Status](https://coveralls.io/repos/github/Sabayon/pkgs-checker/badge.svg?branch=master)](https://coveralls.io/github/Sabayon/pkgs-checker?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/geaaru/pkgs-checker/badge.svg?branch=master)](https://coveralls.io/github/geaaru/pkgs-checker?branch=master)
 
-Tool used for different tasks on Sabayon build process.
+Tool used for different tasks on Macaroni OS build process.
 
 ```bash
 $# pkgs-checker --help
-Sabayon packages checker
+Macaroni OS packages checker
 
 Usage:
    [command]

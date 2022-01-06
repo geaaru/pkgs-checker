@@ -23,7 +23,7 @@ import (
 	"fmt"
 	"sort"
 
-	. "github.com/Sabayon/pkgs-checker/pkg/gentoo"
+	. "github.com/geaaru/pkgs-checker/pkg/gentoo"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

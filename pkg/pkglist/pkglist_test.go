@@ -22,9 +22,9 @@ package pkglist_test
 import (
 	"fmt"
 
-	entropy "github.com/Sabayon/pkgs-checker/pkg/entropy"
-	gentoo "github.com/Sabayon/pkgs-checker/pkg/gentoo"
-	. "github.com/Sabayon/pkgs-checker/pkg/pkglist"
+	entropy "github.com/geaaru/pkgs-checker/pkg/entropy"
+	gentoo "github.com/geaaru/pkgs-checker/pkg/gentoo"
+	. "github.com/geaaru/pkgs-checker/pkg/pkglist"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

@@ -24,7 +24,7 @@ import (
 	"os"
 	"path"
 
-	. "github.com/Sabayon/pkgs-checker/pkg/sark"
+	. "github.com/geaaru/pkgs-checker/pkg/sark"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

@@ -26,8 +26,8 @@ import (
 	"github.com/spf13/cobra"
 	settings "github.com/spf13/viper"
 
-	"github.com/Sabayon/pkgs-checker/pkg/commons"
-	"github.com/Sabayon/pkgs-checker/pkg/hash"
+	"github.com/geaaru/pkgs-checker/pkg/commons"
+	"github.com/geaaru/pkgs-checker/pkg/hash"
 )
 
 func newHashCommand() *cobra.Command {
