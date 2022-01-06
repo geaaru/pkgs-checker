@@ -1,7 +1,5 @@
 # Macaroni OS Packages Checker
 
-[![Coverage Status](https://coveralls.io/repos/github/geaaru/pkgs-checker/badge.svg?branch=master)](https://coveralls.io/github/geaaru/pkgs-checker?branch=master)
-
 Tool used for different tasks on Macaroni OS build process.
 
 ```bash

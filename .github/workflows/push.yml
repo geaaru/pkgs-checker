@@ -30,7 +30,7 @@ jobs:
         run: |
           sudo -E env "PATH=$PATH" make test-coverage
 
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+#     - name: Coveralls
+#        uses: coverallsapp/github-action@master
+#        with:
+#          github-token: ${{ secrets.GITHUB_TOKEN }}
