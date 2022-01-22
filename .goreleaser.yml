@@ -15,8 +15,8 @@ builds:
       - >-
         -s
         -w
-        -X github.com/Sabayon/pkgs-checker/cmd.BuildTime={{.Date}}
-        -X github.com/Sabayon/pkgs-checker/cmd.BuildCommit={{.Commit}}
+        -X github.com/geaaru/pkgs-checker/cmd.BuildTime={{.Date}}
+        -X github.com/geaaru/pkgs-checker/cmd.BuildCommit={{.Commit}}
 
 archives:
   - format: binary
