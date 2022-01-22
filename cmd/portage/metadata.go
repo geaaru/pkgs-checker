@@ -57,6 +57,7 @@ func newMetadataCommand() *cobra.Command {
 			treePath, _ := cmd.Flags().GetString("treePath")
 			lpcFormat, _ := cmd.Flags().GetBool("luet-portage-converter-format")
 			verbose, _ := cmd.Flags().GetBool("verbose")
+			withEnv, _ := cmd.Flags().GetBool("with-environment")
 
 			var opts *gentoo.PortageUseParseOpts
 			var err error
@@ -110,6 +111,7 @@ func newMetadataCommand() *cobra.Command {
 			}
 
 			opts.Verbose = verbose
+			opts.WithEnvironment = withEnv
 
 			pkgs, err := gentoo.ParseMetadataDir(dbPkgsDir, opts)
 			if err != nil {
@@ -186,6 +188,8 @@ func newMetadataCommand() *cobra.Command {
 		"Generate luet-portage-converter YAML output.")
 	flags.String("treePath", "packages/atoms",
 		"Define the tree path to use on luet-portage-converter artefacts.")
+	flags.Bool("with-environment", false,
+		"With the environment.bz2 content encoded in base64.")
 
 	return cmd
 }
