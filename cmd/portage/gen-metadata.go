@@ -56,6 +56,7 @@ func newGenMetadataCommand() *cobra.Command {
 			verbose, _ := cmd.Flags().GetBool("verbose")
 			to, _ := cmd.Flags().GetString("to")
 			quiet, _ := cmd.Flags().GetBool("quiet")
+			withoutEnv, _ := cmd.Flags().GetBool("without-environment")
 
 			var err error
 			var opts *gentoo.PortageUseParseOpts = &gentoo.PortageUseParseOpts{
@@ -77,6 +78,7 @@ func newGenMetadataCommand() *cobra.Command {
 			}
 
 			opts.Verbose = verbose
+			opts.WithEnvironment = !withoutEnv
 
 			pkgs, err := gentoo.ParseMetadataDir(dbPkgsDir, opts)
 			if err != nil {
@@ -121,6 +123,7 @@ func newGenMetadataCommand() *cobra.Command {
 		"Generate medata tree to the specified path.")
 	flags.StringP("db-pkgs-dir-path", "p", "/var/db/pkg",
 		"Path of the portage metadata.")
+	flags.Bool("without-environment", false, "Without the environment.bz2 content.")
 	flags.Bool("quiet", false, "Quiet output.")
 
 	return cmd
