@@ -479,12 +479,22 @@ func ParsePackageMetadataDir(dir string, opts *PortageUseParseOpts) (*PortageMet
 
 	if opts.WithEnvironment {
 		f := filepath.Join(metaDir, "environment.bz2")
-		data, err := ioutil.ReadFile(f)
+		_, err := os.Stat(f)
 		if err != nil {
-			return nil, err
+			if os.IsNotExist(err) {
+				// Ignoring file if not present
+			} else {
+				return nil, err
+			}
+		} else {
+			data, err := ioutil.ReadFile(f)
+			if err != nil {
+				return nil, err
+			}
+
+			ans.EnvironmentBz2 = b64.StdEncoding.EncodeToString(data)
 		}
 
-		ans.EnvironmentBz2 = b64.StdEncoding.EncodeToString(data)
 	}
 
 	return ans, nil
@@ -955,7 +965,7 @@ func (m *PortageMetaData) WriteMetadata2Dir(dir string, opts *PortageUseParseOpt
 	}
 
 	// Write environment.bz2
-	if opts.WithEnvironment {
+	if opts.WithEnvironment && m.EnvironmentBz2 != "" {
 		f := filepath.Join(metadir, "environment.bz2")
 		decoded, err := base64.StdEncoding.DecodeString(m.EnvironmentBz2)
 		if err != nil {
