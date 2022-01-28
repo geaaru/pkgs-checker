@@ -1,6 +1,8 @@
 # github.com/MottainaiCI/simplestreams-builder v0.1.0
 ## explicit
 github.com/MottainaiCI/simplestreams-builder/pkg/tools
+# github.com/bketelsen/crypt v0.0.4
+## explicit
 # github.com/fsnotify/fsnotify v1.5.1
 github.com/fsnotify/fsnotify
 # github.com/hashicorp/go-version v1.2.1
@@ -51,16 +53,20 @@ github.com/onsi/gomega/matchers/support/goraph/util
 github.com/onsi/gomega/types
 # github.com/pelletier/go-toml v1.9.4
 github.com/pelletier/go-toml
+# github.com/shurcooL/sanitized_anchor_name v1.0.0
+## explicit
 # github.com/sirupsen/logrus v1.8.1
 ## explicit
 github.com/sirupsen/logrus
+# github.com/smartystreets/goconvey v1.6.4
+## explicit
 # github.com/spf13/afero v1.8.0
 ## explicit
 github.com/spf13/afero
 github.com/spf13/afero/mem
 # github.com/spf13/cast v1.4.1
 github.com/spf13/cast
-# github.com/spf13/cobra v1.2.1
+# github.com/spf13/cobra v1.3.0
 ## explicit
 github.com/spf13/cobra
 # github.com/spf13/jwalterweatherman v1.1.0
