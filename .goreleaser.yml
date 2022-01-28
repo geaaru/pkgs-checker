@@ -17,6 +17,7 @@ builds:
         -w
         -X github.com/geaaru/pkgs-checker/cmd.BuildTime={{.Date}}
         -X github.com/geaaru/pkgs-checker/cmd.BuildCommit={{.Commit}}
+        -X github.com/geaaru/pkgs-checker/cmd.BuildGoVersion={{.Env.GOVERSION}}
 
 archives:
   - format: binary

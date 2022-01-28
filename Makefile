@@ -1,6 +1,6 @@
-
 NAME := pkgs-checker
 PACKAGE_NAME ?= $(NAME)
+GOLANG_VERSION=$(shell go env GOVERSION)
 REVISION := $(shell git rev-parse --short HEAD || echo dev)
 VERSION := $(shell git describe --tags || echo $(REVISION))
 VERSION := $(shell echo $(VERSION) | sed -e 's/^v//g')
@@ -9,6 +9,7 @@ BUILD_PLATFORMS ?= -osarch="linux/amd64" -osarch="linux/386" -osarch="linux/arm"
 # go tool nm ./luet | grep Commit
 override LDFLAGS += -X "github.com/geaaru/pkgs-checker/cmd.BuildTime=$(shell date -u '+%Y-%m-%d %I:%M:%S %Z')"
 override LDFLAGS += -X "github.com/geaaru/pkgs-checker/cmd.BuildCommit=$(shell git rev-parse HEAD)"
+override LDFLAGS += -X "github.com/geaaru/pkgs-checker/cmd.BuildGoVersion=$(GOLANG_VERSION)"
 
 
 .PHONY: all
@@ -55,7 +56,7 @@ deps:
 .PHONY: goreleaser-snapshot
 goreleaser-snapshot:
 	rm -rf dist/ || true
-	goreleaser release --debug --skip-publish  --skip-validate --snapshot
+	GOVERSION=$(GOLANG_VERSION) goreleaser release --debug --skip-publish  --skip-validate --snapshot
 
 .PHONY: multiarch-build-dev
 multiarch-build-dev: deps

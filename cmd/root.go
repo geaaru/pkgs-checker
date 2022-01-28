@@ -35,8 +35,9 @@ import (
 )
 
 var (
-	BuildTime   string
-	BuildCommit string
+	BuildTime      string
+	BuildCommit    string
+	BuildGoVersion string
 )
 
 // Logfile file descriptor pointer
@@ -44,14 +45,24 @@ var logFile *os.File
 
 // Program command declaration
 var rootCmd = &cobra.Command{
-	Short: "Macaroni OS packages checker",
-	Version: fmt.Sprintf("%s-g%s %s", commons.PKGS_CHECKER_VERSION,
-		BuildCommit, BuildTime),
-	Args: cobra.OnlyValidArgs,
+	Short:   "Macaroni OS packages checker",
+	Version: version(),
+	Args:    cobra.OnlyValidArgs,
 
 	PersistentPreRun: func(cmd *cobra.Command, args []string) {
 		logFile = commons.InitLogging()
 	},
+}
+
+func version() string {
+	ans := fmt.Sprintf("%s-g%s %s", commons.PKGS_CHECKER_VERSION,
+		BuildCommit, BuildTime)
+
+	if BuildGoVersion != "" {
+		ans += " " + BuildGoVersion
+	}
+
+	return ans
 }
 
 func init() {
