@@ -27,9 +27,29 @@ import (
 	"os"
 	"path/filepath"
 	"time"
-
-	tools "github.com/MottainaiCI/simplestreams-builder/pkg/tools"
 )
+
+func MkdirIfNotExist(dir string, mode os.FileMode) (*os.FileInfo, error) {
+	var err error
+	var info os.FileInfo
+
+	if dir == "" {
+		return nil, fmt.Errorf("Invalid directory")
+	}
+
+	if info, err = os.Stat(dir); os.IsNotExist(err) {
+		err = os.MkdirAll(dir, mode)
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	if info != nil {
+		return &info, nil
+	} else {
+		return nil, nil
+	}
+}
 
 type FilterReport struct {
 	FilterDate string   `json:"filter_date,omitempty"`
@@ -60,7 +80,7 @@ func (f *FilterReport) WriteReport(reportPrefix string) error {
 	}
 
 	dir := filepath.Dir(reportPrefix)
-	_, err := tools.MkdirIfNotExist(dir, 0760)
+	_, err := MkdirIfNotExist(dir, 0760)
 	if err != nil {
 		return err
 	}
