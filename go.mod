@@ -3,7 +3,6 @@ module github.com/geaaru/pkgs-checker
 go 1.16
 
 require (
-	github.com/MottainaiCI/simplestreams-builder v0.1.0
 	github.com/bketelsen/crypt v0.0.4 // indirect
 	github.com/hashicorp/go-version v1.2.1
 	github.com/mattn/go-sqlite3 v1.14.4
