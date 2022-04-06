@@ -4,7 +4,7 @@ go 1.16
 
 require (
 	github.com/bketelsen/crypt v0.0.4 // indirect
-	github.com/hashicorp/go-version v1.2.1
+	github.com/hashicorp/go-version v1.4.0
 	github.com/magiconair/properties v1.8.6 // indirect
 	github.com/mattn/go-sqlite3 v1.14.12
 	github.com/onsi/ginkgo/v2 v2.1.3
