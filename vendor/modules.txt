@@ -18,7 +18,8 @@ github.com/hashicorp/hcl/json/scanner
 github.com/hashicorp/hcl/json/token
 # github.com/inconshreveable/mousetrap v1.0.0
 github.com/inconshreveable/mousetrap
-# github.com/magiconair/properties v1.8.5
+# github.com/magiconair/properties v1.8.6
+## explicit
 github.com/magiconair/properties
 # github.com/mattn/go-sqlite3 v1.14.4
 ## explicit
@@ -57,7 +58,7 @@ github.com/pelletier/go-toml
 github.com/sirupsen/logrus
 # github.com/smartystreets/goconvey v1.6.4
 ## explicit
-# github.com/spf13/afero v1.8.0
+# github.com/spf13/afero v1.8.2
 ## explicit
 github.com/spf13/afero
 github.com/spf13/afero/mem
@@ -85,7 +86,7 @@ github.com/subosito/gotenv
 golang.org/x/net/html
 golang.org/x/net/html/atom
 golang.org/x/net/html/charset
-# golang.org/x/sys v0.0.0-20220114195835-da31bd327af9
+# golang.org/x/sys v0.0.0-20220405210540-1e041c57c461
 ## explicit
 golang.org/x/sys/internal/unsafeheader
 golang.org/x/sys/unix
@@ -110,7 +111,7 @@ golang.org/x/text/language
 golang.org/x/text/runes
 golang.org/x/text/transform
 golang.org/x/text/unicode/norm
-# gopkg.in/ini.v1 v1.66.3
+# gopkg.in/ini.v1 v1.66.4
 ## explicit
 gopkg.in/ini.v1
 # gopkg.in/yaml.v2 v2.4.0
