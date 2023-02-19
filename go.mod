@@ -3,7 +3,7 @@ module github.com/geaaru/pkgs-checker
 go 1.18
 
 require (
-	github.com/hashicorp/go-version v1.4.0
+	github.com/hashicorp/go-version v1.6.0
 	github.com/mattn/go-sqlite3 v1.14.12
 	github.com/onsi/ginkgo/v2 v2.8.3
 	github.com/onsi/gomega v1.27.0
