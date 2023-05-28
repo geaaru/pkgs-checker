@@ -1,6 +1,6 @@
 /*
 
-Copyright (C) 2017-2019  Daniele Rondina <geaaru@sabayonlinux.org>
+Copyright (C) 2017-2023  Daniele Rondina <geaaru@funtoo.org>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -2247,6 +2247,31 @@ var _ = Describe("Gentoo Packages", func() {
 			Expect(err).Should(BeNil())
 		})
 		gp3, err := ParsePackageStr("net-vpn/wireguard-0.4.0")
+		It("Check error", func() {
+			Expect(err).Should(BeNil())
+		})
+
+		pkgs := []GentooPackage{*gp2, *gp3, *gp1}
+
+		sort.Sort(GentooPackageSorter(pkgs))
+
+		It("Check order", func() {
+			Expect(pkgs[0]).Should(Equal(*gp3))
+			Expect(pkgs[1]).Should(Equal(*gp1))
+			Expect(pkgs[2]).Should(Equal(*gp2))
+		})
+	})
+
+	Context("Check Package sorter3", func() {
+		gp1, err := ParsePackageStr("net-vpn/wireguard-0.6.0+8")
+		It("Check error", func() {
+			Expect(err).Should(BeNil())
+		})
+		gp2, err := ParsePackageStr("net-vpn/wireguard-0.6.0+10")
+		It("Check error", func() {
+			Expect(err).Should(BeNil())
+		})
+		gp3, err := ParsePackageStr("net-vpn/wireguard-0.6.0+4")
 		It("Check error", func() {
 			Expect(err).Should(BeNil())
 		})
