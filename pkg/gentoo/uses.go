@@ -35,6 +35,7 @@ type PortageMetaData struct {
 	Use            []string `json:"use,omitempty"`
 	Eapi           string   `json:"eapi,omitempty"`
 	CxxFlags       string   `json:"cxxflags,omitempty"`
+	Cxx            string   `json:"cxx,omitempty"`
 	CFlags         string   `json:"cflags,omitempty"`
 	LdFlags        string   `json:"ldflags,omitempty"`
 	CHost          string   `json:"chost,omitempty"`
@@ -95,6 +96,7 @@ func NewPortageMetaData(pkg *GentooPackage) *PortageMetaData {
 		Use:            make([]string, 0),
 		Eapi:           "",
 		CxxFlags:       "",
+		Cxx:            "",
 		LdFlags:        "",
 		BDEPEND:        "",
 		RDEPEND:        "",
@@ -405,6 +407,13 @@ func ParsePackageMetadataDir(dir string, opts *PortageUseParseOpts) (*PortageMet
 
 	ans.CxxFlags, err = parseMetaFile(
 		filepath.Join(metaDir, "CXXFLAGS"), true,
+	)
+	if err != nil {
+		return nil, err
+	}
+
+	ans.Cxx, err = parseMetaFile(
+		filepath.Join(metaDir, "CXX"), true,
 	)
 	if err != nil {
 		return nil, err
@@ -800,6 +809,14 @@ func (m *PortageMetaData) WriteMetadata2Dir(dir string, opts *PortageUseParseOpt
 	// Write CXXFLAGS
 	err = os.WriteFile(filepath.Join(metadir, "CXXFLAGS"),
 		[]byte(m.CxxFlags+"\n"), 0644,
+	)
+	if err != nil {
+		return err
+	}
+
+	// Write CXX
+	err = os.WriteFile(filepath.Join(metadir, "CXX"),
+		[]byte(m.Cxx+"\n"), 0644,
 	)
 	if err != nil {
 		return err
