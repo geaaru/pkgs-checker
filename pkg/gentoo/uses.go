@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2017-2021  Daniele Rondina <geaaru@sabayonlinux.org>
+Copyright (C) 2017-2023  Daniele Rondina <geaaru@gmail.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -50,6 +50,7 @@ type PortageMetaData struct {
 	BUILD_TIME     string   `json:"build_time,omitempty"`
 	CBUILD         string   `json:"cbuild,omitempty"`
 	COUNTER        string   `json:"counter,omitempty"`
+	CTARGET        string   `json:"ctarget,omitempty"`
 	DEFINED_PHASES string   `json:"defined_phases,omitempty"`
 	DESCRIPTION    string   `json:"description,omitempty"`
 	FEATURES       string   `json:"features,omitempty"`
@@ -103,6 +104,7 @@ func NewPortageMetaData(pkg *GentooPackage) *PortageMetaData {
 		BUILD_TIME:     "",
 		CBUILD:         "",
 		COUNTER:        "",
+		CTARGET:        "",
 		DEFINED_PHASES: "",
 		DESCRIPTION:    "",
 		FEATURES:       "",
@@ -321,6 +323,11 @@ func ParsePackageMetadataDir(dir string, opts *PortageUseParseOpts) (*PortageMet
 	}
 
 	ans.COUNTER, err = parseMetaFile(filepath.Join(metaDir, "COUNTER"), true)
+	if err != nil {
+		return nil, err
+	}
+
+	ans.CTARGET, err = parseMetaFile(filepath.Join(metaDir, "CTARGET"), true)
 	if err != nil {
 		return nil, err
 	}
@@ -777,6 +784,14 @@ func (m *PortageMetaData) WriteMetadata2Dir(dir string, opts *PortageUseParseOpt
 	// Write COUNTER
 	err = os.WriteFile(filepath.Join(metadir, "COUNTER"),
 		[]byte(m.COUNTER), 0644,
+	)
+	if err != nil {
+		return err
+	}
+
+	// Write CTARGET
+	err = os.WriteFile(filepath.Join(metadir, "CTARGET"),
+		[]byte(m.CTARGET), 0644,
 	)
 	if err != nil {
 		return err
