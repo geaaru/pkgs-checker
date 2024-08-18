@@ -30,7 +30,6 @@ import (
 	"github.com/geaaru/pkgs-checker/cmd/pkg"
 	"github.com/geaaru/pkgs-checker/cmd/pkglist"
 	"github.com/geaaru/pkgs-checker/cmd/portage"
-	"github.com/geaaru/pkgs-checker/cmd/sark"
 	"github.com/geaaru/pkgs-checker/pkg/commons"
 )
 
@@ -83,7 +82,6 @@ func init() {
 		newFilterCommand(),
 		pkg.NewPkgCommand(),
 		pkglist.NewPkglistCommand(),
-		sark.NewSarkCommand(),
 		entropy.NewEntropyCommand(),
 		portage.NewPortageCommand(),
 	)
