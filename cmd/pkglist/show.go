@@ -1,5 +1,4 @@
 /*
-
 Copyright (C) 2017-2021  Daniele Rondina <geaaru@sabayonlinux.org>
 
 This program is free software: you can redistribute it and/or modify
@@ -14,7 +13,6 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
-
 */
 package pkglist
 
@@ -27,7 +25,7 @@ import (
 	settings "github.com/spf13/viper"
 
 	"github.com/geaaru/pkgs-checker/pkg/commons"
-	entropy "github.com/geaaru/pkgs-checker/pkg/entropy"
+	"github.com/geaaru/pkgs-checker/pkg/gentoo"
 	"github.com/geaaru/pkgs-checker/pkg/pkglist"
 )
 
@@ -59,7 +57,7 @@ func newPkglistShowCommand() *cobra.Command {
 			}
 			apiKey := settings.GetString("apikey")
 
-			pmapPkgs := make(map[string]entropy.EntropyPackage, 0)
+			pmapPkgs := make(map[string]gentoo.GentooPackage, 0)
 			plist := make([]string, 0)
 			var pkgsJsonReport *pkglist.PkgListReport
 
@@ -112,7 +110,7 @@ func newPkglistShowCommand() *cobra.Command {
 				sort.Strings(plist)
 
 				if jsonOutput {
-					pkgsJsonReport = pkglist.NewPkgListReport(repo, arch, make([]entropy.EntropyPackage, 0))
+					pkgsJsonReport = pkglist.NewPkgListReport(repo, arch, make([]gentoo.GentooPackage, 0))
 
 					for _, pkg := range plist {
 						p := pmapPkgs[pkg]

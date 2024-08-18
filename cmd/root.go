@@ -26,7 +26,6 @@ import (
 	"github.com/spf13/cobra"
 	settings "github.com/spf13/viper"
 
-	"github.com/geaaru/pkgs-checker/cmd/entropy"
 	"github.com/geaaru/pkgs-checker/cmd/pkg"
 	"github.com/geaaru/pkgs-checker/cmd/pkglist"
 	"github.com/geaaru/pkgs-checker/cmd/portage"
@@ -82,7 +81,6 @@ func init() {
 		newFilterCommand(),
 		pkg.NewPkgCommand(),
 		pkglist.NewPkglistCommand(),
-		entropy.NewEntropyCommand(),
 		portage.NewPortageCommand(),
 	)
 }

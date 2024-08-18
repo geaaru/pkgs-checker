@@ -1,5 +1,4 @@
 /*
-
 Copyright (C) 2017-2019  Daniele Rondina <geaaru@sabayonlinux.org>
 
 This program is free software: you can redistribute it and/or modify
@@ -14,7 +13,6 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
-
 */
 package pkglist
 
@@ -35,16 +33,16 @@ import (
 
 	"github.com/geaaru/pkgs-checker/pkg/binhostdir"
 	commons "github.com/geaaru/pkgs-checker/pkg/commons"
-	entropy "github.com/geaaru/pkgs-checker/pkg/entropy"
+	gentoo "github.com/geaaru/pkgs-checker/pkg/gentoo"
 )
 
 type PkgListReport struct {
-	Repository   string                   `json:"repository,omitempty"`
-	Architecture string                   `json:"arch,omitempty"`
-	Packages     []entropy.EntropyPackage `json:"packages,omitempty"`
+	Repository   string                 `json:"repository,omitempty"`
+	Architecture string                 `json:"arch,omitempty"`
+	Packages     []gentoo.GentooPackage `json:"packages,omitempty"`
 }
 
-func NewPkgListReport(repo, arch string, pkgs []entropy.EntropyPackage) *PkgListReport {
+func NewPkgListReport(repo, arch string, pkgs []gentoo.GentooPackage) *PkgListReport {
 	return &PkgListReport{
 		Repository:   repo,
 		Architecture: arch,
@@ -102,17 +100,17 @@ func PkgListParser(data []byte) ([]string, error) {
 	return ans, nil
 }
 
-func PkgListConvertToMap(pkgs []string) (map[string][]entropy.EntropyPackage, error) {
-	ans := make(map[string][]entropy.EntropyPackage, 0)
+func PkgListConvertToMap(pkgs []string) (map[string][]gentoo.GentooPackage, error) {
+	ans := make(map[string][]gentoo.GentooPackage, 0)
 
 	for _, pkg := range pkgs {
-		ep, err := entropy.NewEntropyPackage(pkg)
+		ep, err := gentoo.ParsePackageStr(pkg)
 		if err != nil {
 			return nil, err
 		}
 
 		if _, ok := ans[ep.Category]; !ok {
-			ans[ep.Category] = make([]entropy.EntropyPackage, 0)
+			ans[ep.Category] = make([]gentoo.GentooPackage, 0)
 		}
 		ans[ep.Category] = append(ans[ep.Category], *ep)
 	}
@@ -120,7 +118,7 @@ func PkgListConvertToMap(pkgs []string) (map[string][]entropy.EntropyPackage, er
 	return ans, nil
 }
 
-func PkgListIntersect(list1Map, list2Map map[string][]entropy.EntropyPackage) []string {
+func PkgListIntersect(list1Map, list2Map map[string][]gentoo.GentooPackage) []string {
 	ans := make([]string, 0)
 	mpkgs := make(map[string]bool, 0)
 
@@ -131,7 +129,7 @@ func PkgListIntersect(list1Map, list2Map map[string][]entropy.EntropyPackage) []
 		} else {
 			for _, pkg := range pkgs {
 				for _, pkg2 := range pkgs2 {
-					if pkg.OfPackage(pkg2.GentooPackage) {
+					if pkg.OfPackage(&pkg) {
 						mpkgs[pkg.GetPackageName()] = true
 						logger.Debugf("pkg %s (%s) duplicated.",
 							pkg.GetPackageName(), pkg2.GetPackageName())
@@ -273,7 +271,7 @@ func PkgListCreate(binhostDir string, log *logger.Logger) ([]string, error) {
 	return ans, nil
 }
 
-func PkgListCreateToMap(binhostDir string, log *logger.Logger) (map[string][]entropy.EntropyPackage,
+func PkgListCreateToMap(binhostDir string, log *logger.Logger) (map[string][]gentoo.GentooPackage,
 	error) {
 	if binhostDir == "" {
 		return nil, errors.New("Invalid binhostDir")
@@ -285,15 +283,15 @@ func PkgListCreateToMap(binhostDir string, log *logger.Logger) (map[string][]ent
 		return nil, err
 	}
 
-	ans := make(map[string][]entropy.EntropyPackage, 0)
+	ans := make(map[string][]gentoo.GentooPackage, 0)
 	if len(binHostTree) > 0 {
 		for cat, pkgs := range binHostTree {
 			sort.Strings(pkgs)
 
-			gpkgs := make([]entropy.EntropyPackage, 0, len(pkgs))
+			gpkgs := make([]gentoo.GentooPackage, 0, len(pkgs))
 			for idx, p := range pkgs {
 				f := filepath.Base(p)
-				gp, err := entropy.NewEntropyPackage(
+				gp, err := gentoo.ParsePackageStr(
 					fmt.Sprintf("%s/%s",
 						cat, f[0:strings.Index(f, filepath.Ext(f))]))
 				if err != nil {
