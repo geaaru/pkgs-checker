@@ -1,5 +1,4 @@
 /*
-
 Copyright (C) 2017-2021  Daniele Rondina <geaaru@sabayonlinux.org>
 
 This program is free software: you can redistribute it and/or modify
@@ -14,7 +13,6 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
-
 */
 package portage
 
@@ -29,7 +27,7 @@ import (
 	"github.com/geaaru/pkgs-checker/pkg/luet"
 
 	"github.com/spf13/cobra"
-	"gopkg.in/yaml.v2"
+	"gopkg.in/yaml.v3"
 )
 
 func parseFilterFile(file string) (*gentoo.PortageUseParseOpts, error) {
