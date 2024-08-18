@@ -11,14 +11,12 @@ Usage:
 
 Available Commands:
   completion  generate the autocompletion script for the specified shell
-  entropy     Entropy tool.
   filter      Filter bin-host packages/directory.
   hash        Hashing packages
   help        Help about any command
   pkg         Package parsing tool.
   pkglist     Manage pkglist files.
   portage     Manage portage files/metafiles.
-  sark        Manage sark process.
 
 Flags:
   -c, --concurrency       Enable concurrency process.
@@ -501,69 +499,6 @@ Flags:
   -p, --parse-pkgname     Parse package version string and hide entropy revision.
   -r, --pkglist strings   Path or URL of pkglist resource.
   -q, --quiet             Quiet output.
-
-Global Flags:
-  -c, --concurrency       Enable concurrency process.
-  -l, --logfile string    Logfile Path. Optional.
-  -L, --loglevel string   Set logging level.
-                          [DEBUG, INFO, WARN, ERROR] (default "INFO")
-  -v, --verbose           Enable verbose logging on stdout.
-```
-
-## *sark* command
-
-Commands for help on SARK processes.
-
-```
-$# pkgs-checker sark
-Manage sark process.
-
-Usage:
-   sark [command]
-
-Available Commands:
-  compare     Compare sark targets with pkglist files
-
-Flags:
-  -h, --help   help for sark
-
-Global Flags:
-  -c, --concurrency       Enable concurrency process.
-  -l, --logfile string    Logfile Path. Optional.
-  -L, --loglevel string   Set logging level.
-                          [DEBUG, INFO, WARN, ERROR] (default "INFO")
-  -v, --verbose           Enable verbose logging on stdout.
-
-Use " sark [command] --help" for more information about a command.
-```
-
-### *sark compare* command
-
-Check for packages not defined on SARK build files or packages that are defined in SARK build files
-but not available on packages list.
-
-```
-$ ./pkgs-checker sark compare --help
-Compare sark targets with pkglist files
-
-Usage:
-   sark compare [OPTIONS] [flags]
-
-Examples:
-
-Show targets not present on package list:
-$> pkgs-checker sark compare -s core-staging1-build.yaml -p core-arm.pkglist -v -m
-
-Show packages not present between SARK targets:
-$> pkgs-checker sark compare -s core-staging1-build.yaml -p core-arm.pkglist -v -t
-
-
-Flags:
-  -h, --help                    help for compare
-  -m, --missing-packages        Show targets not present on pkglist(s).
-  -t, --missing-targets         Show packages not present on target.
-  -p, --pkglist-files strings   Path or URL of pkglist resources.
-  -s, --sark-files strings      Path or URL of sark config resources.
 
 Global Flags:
   -c, --concurrency       Enable concurrency process.
