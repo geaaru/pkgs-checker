@@ -24,7 +24,6 @@ pkgs-checker:
 .PHONY: test
 test:
 	go test -v -tags all -cover -race ./...
-	#go test -v -tags all -cover -race ./... -ginkgo.v
 
 .PHONY: coverage
 coverage:
@@ -41,22 +40,23 @@ clean:
 
 .PHONY: build
 build:
-	go build -ldflags '$(LDFLAGS)'
+	CGO_ENABLED=0 go build -ldflags '$(LDFLAGS)'
+
+.PHONY: build-small
+build-small:
+	@$(MAKE) LDFLAGS+="-s -w" build
+	upx --brute -1 $(NAME)
 
 .PHONY: deps
 deps:
 	go env
 	# Installing dependencies...
-	GO111MODULE=off go get golang.org/x/lint/golint
-	GO111MODULE=off go get github.com/mitchellh/gox
+	GO111MODULE=on go install -mod=mod golang.org/x/lint/golint
 	GO111MODULE=on go install -mod=mod github.com/onsi/ginkgo/v2/ginkgo
-	GO111MODULE=off go get github.com/onsi/gomega/...
+	go get github.com/onsi/gomega/...
+	ginkgo version
 
 .PHONY: goreleaser-snapshot
 goreleaser-snapshot:
 	rm -rf dist/ || true
-	GOVERSION=$(GOLANG_VERSION) goreleaser release --debug --skip-publish  --skip-validate --snapshot
-
-.PHONY: multiarch-build-dev
-multiarch-build-dev: deps
-	CGO_ENABLED=1 gox $(BUILD_PLATFORMS) -output="release/$(NAME)-$(REVISION)-{{.OS}}-{{.Arch}}" -ldflags "$(LDFLAGS) -extldflags=-Wl,--allow-multiple-definition"
+	GOVERSION=$(GOLANG_VERSION) goreleaser release --skip=validate,publish --snapshot --verbose
