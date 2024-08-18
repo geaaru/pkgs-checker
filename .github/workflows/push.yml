@@ -9,12 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go: ["1.19.x", "1.20.x", "1.21.x"]
+        go: ["1.21.x", "1.22.x" ]
     steps:
       - name: Install Go
         uses: actions/setup-go@v3
         with:
           go-version: ${{ matrix.go }}
+
+      - name: Get Golang Version
+        id: goversion
+        run: |
+          echo "GOVERSION=$(go env GOVERSION)" >> $GITHUB_ENV
 
       - name: Checkout code
         uses: actions/checkout@v3
@@ -34,8 +39,3 @@ jobs:
       - name: Tests
         run: |
           sudo -E env "PATH=$PATH" make test-coverage
-
-#     - name: Coveralls
-#        uses: coverallsapp/github-action@master
-#        with:
-#          github-token: ${{ secrets.GITHUB_TOKEN }}
