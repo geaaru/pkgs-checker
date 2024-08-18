@@ -17,9 +17,7 @@ override LDFLAGS += -X "github.com/geaaru/pkgs-checker/cmd.BuildGoVersion=$(GOLA
 all: pkgs-checker
 
 .PHONY: pkgs-checker
-pkgs-checker:
-	# pkgs-checker uses go-sqlite3 that require CGO
-	CGO_ENABLED=1 go build -ldflags '$(LDFLAGS)'
+pkgs-checker: build
 
 .PHONY: test
 test:
