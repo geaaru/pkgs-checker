@@ -1,6 +1,6 @@
 module github.com/geaaru/pkgs-checker
 
-go 1.22
+go 1.21
 
 require (
 	github.com/hashicorp/go-version v1.7.0
