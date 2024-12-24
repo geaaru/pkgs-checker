@@ -225,6 +225,84 @@ var _ = Describe("Gentoo Packages", func() {
 			})
 		})
 
+		Context("Parse dependency7", func() {
+
+			pkg, err := ParsePackageStr("virtual/perl-Digest-1.170.100_rc-r10")
+			g := GentooPackage{
+				Name:          "perl-Digest",
+				Category:      "virtual",
+				Condition:     PkgCondInvalid,
+				Slot:          "",
+				Version:       "1.170.100",
+				VersionSuffix: "_rc-r10",
+				VersionBuild:  "",
+				Repository:    "",
+			}
+
+			It("Check error", func() {
+				Expect(err).Should(BeNil())
+			})
+
+			It("Check pkgName", func() {
+				Expect((*pkg).Name).Should(Equal(g.Name))
+			})
+
+			It("Check category", func() {
+				Expect((*pkg).Category).Should(Equal(g.Category))
+			})
+
+			It("Check version", func() {
+				Expect((*pkg).Version).Should(Equal(g.Version))
+			})
+
+			It("Check PV", func() {
+				Expect((*pkg).GetPV()).Should(Equal("1.170.100_rc"))
+			})
+
+			It("Check PVR", func() {
+				Expect((*pkg).GetPVR()).Should(Equal("1.170.100_rc-r10"))
+			})
+		})
+
+		Context("Parse dependency8", func() {
+
+			pkg, err := ParsePackageStr("app-arch/cpio-2.13-r1")
+			g := GentooPackage{
+				Name:          "cpio",
+				Category:      "app-arch",
+				Condition:     PkgCondInvalid,
+				Slot:          "",
+				Version:       "2.13",
+				VersionSuffix: "-r1",
+				VersionBuild:  "",
+				Repository:    "",
+			}
+
+			It("Check error", func() {
+				Expect(err).Should(BeNil())
+			})
+
+			It("Check pkgName", func() {
+				Expect((*pkg).Name).Should(Equal(g.Name))
+			})
+
+			It("Check category", func() {
+				Expect((*pkg).Category).Should(Equal(g.Category))
+			})
+
+			It("Check version", func() {
+				Expect((*pkg).Version).Should(Equal(g.Version))
+			})
+
+			It("Check PV", func() {
+				Expect((*pkg).GetPV()).Should(Equal("2.13"))
+			})
+
+			It("Check PVR", func() {
+				Expect((*pkg).GetPVR()).Should(Equal("2.13-r1"))
+			})
+		})
+
 		// Tests by: https://wiki.gentoo.org/wiki/Version_specifier
 
 		Context("Matches any version of a package", func() {
