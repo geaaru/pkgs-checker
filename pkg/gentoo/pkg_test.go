@@ -150,6 +150,81 @@ var _ = Describe("Gentoo Packages", func() {
 			})
 		})
 
+		Context("Parse dependency5", func() {
+
+			pkg, err := ParsePackageStr("dev-libs/libffi-3.3_rc0")
+			g := GentooPackage{
+				Name:          "libffi",
+				Category:      "dev-libs",
+				Condition:     PkgCondInvalid,
+				Slot:          "",
+				Version:       "3.3",
+				VersionSuffix: "_rc0",
+				VersionBuild:  "",
+				Repository:    "",
+			}
+
+			It("Check error", func() {
+				Expect(err).Should(BeNil())
+			})
+
+			It("Check pkgName", func() {
+				Expect((*pkg).Name).Should(Equal(g.Name))
+			})
+
+			It("Check category", func() {
+				Expect((*pkg).Category).Should(Equal(g.Category))
+			})
+
+			It("Check version", func() {
+				Expect((*pkg).Version).Should(Equal(g.Version))
+			})
+
+			It("Check PV", func() {
+				Expect((*pkg).GetPV()).Should(Equal("3.3_rc0"))
+			})
+
+		})
+
+		Context("Parse dependency6", func() {
+
+			pkg, err := ParsePackageStr("dev-libs/libffi-3.3_rc0-r1")
+			g := GentooPackage{
+				Name:          "libffi",
+				Category:      "dev-libs",
+				Condition:     PkgCondInvalid,
+				Slot:          "",
+				Version:       "3.3",
+				VersionSuffix: "_rc0-r1",
+				VersionBuild:  "",
+				Repository:    "",
+			}
+
+			It("Check error", func() {
+				Expect(err).Should(BeNil())
+			})
+
+			It("Check pkgName", func() {
+				Expect((*pkg).Name).Should(Equal(g.Name))
+			})
+
+			It("Check category", func() {
+				Expect((*pkg).Category).Should(Equal(g.Category))
+			})
+
+			It("Check version", func() {
+				Expect((*pkg).Version).Should(Equal(g.Version))
+			})
+
+			It("Check PV", func() {
+				Expect((*pkg).GetPV()).Should(Equal("3.3_rc0"))
+			})
+
+			It("Check PVR", func() {
+				Expect((*pkg).GetPVR()).Should(Equal("3.3_rc0-r1"))
+			})
+		})
+
 		// Tests by: https://wiki.gentoo.org/wiki/Version_specifier
 
 		Context("Matches any version of a package", func() {
