@@ -378,6 +378,45 @@ var _ = Describe("Gentoo Packages", func() {
 			})
 		})
 
+		Context("Increment Revision", func() {
+
+			pkg, err := ParsePackageStr("app-cdr/cdrtools-3.02_alpha09-r2")
+			pkg.IncrementRevision()
+			g := GentooPackage{
+				Name:          "cdrtools",
+				Category:      "app-cdr",
+				Condition:     PkgCondEqual,
+				Slot:          "0",
+				Version:       "3.02",
+				VersionSuffix: "_alpha09-r3",
+				VersionBuild:  "",
+				Repository:    "",
+			}
+			fmt.Println(fmt.Sprintf("pkg %s", pkg))
+
+			It("Check error", func() {
+				Expect(err).Should(BeNil())
+			})
+
+			It("Check pkgName", func() {
+				Expect((*pkg).Name).Should(Equal("cdrtools"))
+			})
+
+			It("Check category", func() {
+				Expect((*pkg).Category).Should(Equal("app-cdr"))
+			})
+
+			It("Check cond", func() {
+				// TODO: check how use PkgCondInvalid
+				Expect((*pkg).Condition).Should(Equal(g.Condition))
+			})
+
+			It("Check struct", func() {
+				// TODO: check how use PkgCondInvalid
+				Expect((*pkg)).Should(Equal(g))
+			})
+		})
+
 		Context("Matches any version and any revision", func() {
 
 			pkg, err := ParsePackageStr("~sys-devel/gdb-7.3")
