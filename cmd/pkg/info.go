@@ -99,6 +99,7 @@ $> pkgs-checker pkg info app/foo-3.30
 					fmt.Println("uses:", gp.UseFlags)
 					fmt.Println("pv:", gp.GetPV())
 					fmt.Println("pvr:", gp.GetPVR())
+					fmt.Println("revision:", gp.GetRevision())
 				}
 
 			}
