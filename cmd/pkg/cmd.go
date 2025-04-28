@@ -28,6 +28,7 @@ func NewPkgCommand() *cobra.Command {
 	}
 
 	cmd.AddCommand(
+		newPkgAdmitCommand(),
 		newPkgInfoCommand(),
 		newPkgCompareCommand(),
 		newPkgIncrementRevCommand(),
