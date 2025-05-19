@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go: ["1.21.x", "1.22.x" ]
+        go: ["1.23.x" ]
     steps:
       - name: Install Go
         uses: actions/setup-go@v3
@@ -22,7 +22,7 @@ jobs:
           echo "GOVERSION=$(go env GOVERSION)" >> $GITHUB_ENV
 
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install deps
         run: |
