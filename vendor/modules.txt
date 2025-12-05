@@ -26,15 +26,9 @@ github.com/google/pprof/profile
 # github.com/hashicorp/go-version v1.7.0
 ## explicit
 github.com/hashicorp/go-version
-# github.com/hashicorp/hcl v1.0.0
-## explicit
 # github.com/inconshreveable/mousetrap v1.1.0
 ## explicit; go 1.18
 github.com/inconshreveable/mousetrap
-# github.com/magiconair/properties v1.8.9
-## explicit; go 1.19
-# github.com/mitchellh/mapstructure v1.5.0
-## explicit; go 1.14
 # github.com/onsi/ginkgo/v2 v2.23.3
 ## explicit; go 1.23.0
 github.com/onsi/ginkgo/v2
@@ -80,9 +74,7 @@ github.com/pelletier/go-toml/v2/unstable
 # github.com/sagikazarmark/locafero v0.9.0
 ## explicit; go 1.23.0
 github.com/sagikazarmark/locafero
-# github.com/sagikazarmark/slog-shim v0.1.0
-## explicit; go 1.20
-# github.com/sirupsen/logrus v1.9.0
+# github.com/sirupsen/logrus v1.9.1
 ## explicit; go 1.13
 github.com/sirupsen/logrus
 # github.com/sourcegraph/conc v0.3.0
@@ -119,10 +111,6 @@ github.com/subosito/gotenv
 # go.uber.org/multierr v1.11.0
 ## explicit; go 1.19
 go.uber.org/multierr
-# golang.org/x/exp v0.0.0-20241210194714-1829a127f884
-## explicit; go 1.22.0
-# golang.org/x/lint v0.0.0-20210508222113-6edffad5e616
-## explicit; go 1.11
 # golang.org/x/net v0.40.0
 ## explicit; go 1.23.0
 golang.org/x/net/html
@@ -157,10 +145,6 @@ golang.org/x/text/unicode/norm
 golang.org/x/tools/cover
 golang.org/x/tools/go/ast/inspector
 golang.org/x/tools/internal/astutil/edge
-# google.golang.org/protobuf v1.36.5
-## explicit; go 1.21
-# gopkg.in/ini.v1 v1.67.0
-## explicit
 # gopkg.in/yaml.v3 v3.0.1
 ## explicit
 gopkg.in/yaml.v3
