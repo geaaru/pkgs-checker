@@ -19,12 +19,11 @@ package portage
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"strings"
 
+	"github.com/geaaru/pkgs-checker/pkg/anise"
 	"github.com/geaaru/pkgs-checker/pkg/gentoo"
-	"github.com/geaaru/pkgs-checker/pkg/luet"
 
 	"github.com/spf13/cobra"
 	"gopkg.in/yaml.v3"
@@ -41,7 +40,7 @@ func parseFilterFile(file string) (*gentoo.PortageUseParseOpts, error) {
 		return ans, err
 	}
 
-	data, err := ioutil.ReadFile(file)
+	data, err := os.ReadFile(file)
 	if err != nil {
 		return ans, err
 	}
@@ -65,7 +64,7 @@ func newGenPkgsUsesCommand() *cobra.Command {
 			jsonOutput, _ := cmd.Flags().GetBool("json")
 			filterFile, _ := cmd.Flags().GetString("filter-opts")
 			treePath, _ := cmd.Flags().GetString("treePath")
-			lpcFormat, _ := cmd.Flags().GetBool("luet-portage-converter-format")
+			apcFormat, _ := cmd.Flags().GetBool("anise-portage-converter-format")
 			verbose, _ := cmd.Flags().GetBool("verbose")
 
 			if dbPkgsDir == "" {
@@ -115,8 +114,8 @@ func newGenPkgsUsesCommand() *cobra.Command {
 				os.Exit(1)
 			}
 
-			if lpcFormat {
-				artefacts := luet.ConvertPortageMeta2PortageConverter(pkgs, treePath)
+			if apcFormat {
+				artefacts := anise.ConvertPortageMeta2PortageConverter(pkgs, treePath)
 
 				data, err := yaml.Marshal(&artefacts)
 				if err != nil {
@@ -148,10 +147,10 @@ func newGenPkgsUsesCommand() *cobra.Command {
 		"Path of the portage metadata.")
 	flags.BoolP("json", "j", false, "Output in JSON format")
 	flags.String("filter-opts", "", "Using filter rules through YAML file.")
-	flags.Bool("luet-portage-converter-format", false,
-		"Generate luet-portage-converter YAML output.")
+	flags.Bool("anise-portage-converter-format", false,
+		"Generate anise-portage-converter YAML output.")
 	flags.String("treePath", "packages/atoms",
-		"Define the tree path to use on luet-portage-converter artefacts.")
+		"Define the tree path to use on anise-portage-converter artefacts.")
 
 	return cmd
 }
