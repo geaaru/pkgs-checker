@@ -30,8 +30,7 @@ import (
 	settings "github.com/spf13/viper"
 )
 
-const PKGS_CHECKER_VERSION = "0.16.0"
-const PKGS_CHECKER_EMPTY_PKGHASH = "00000000000000000000000000000000"
+const PKGS_CHECKER_VERSION = "0.17.0"
 
 func InitConcurrency() {
 	if settings.GetInt("maxconcurrency") > runtime.NumCPU() {
