@@ -27,7 +27,6 @@ import (
 	settings "github.com/spf13/viper"
 
 	"github.com/geaaru/pkgs-checker/cmd/pkg"
-	"github.com/geaaru/pkgs-checker/cmd/pkglist"
 	"github.com/geaaru/pkgs-checker/cmd/portage"
 	"github.com/geaaru/pkgs-checker/pkg/commons"
 )
@@ -77,10 +76,7 @@ func init() {
 	settings.BindPFlag("loglevel", rootCmd.PersistentFlags().Lookup("loglevel"))
 
 	rootCmd.AddCommand(
-		newHashCommand(),
-		newFilterCommand(),
 		pkg.NewPkgCommand(),
-		pkglist.NewPkglistCommand(),
 		portage.NewPortageCommand(),
 	)
 }
